@@ -257,6 +257,3 @@ Para sugestões, dúvidas ou relatórios de bugs, abra uma issue ou entre em con
 Resumo: Este projeto combina FastAPI e TensorFlow para prever o turnover de funcionários, oferecendo uma API robusta e uma interface web simples. O código é modular, bem documentado e pronto para uso ou expansão. Teste a aplicação e explore como ela pode ser integrada a outros sistemas! 💡
 
 Última atualização: 14 de maio de 2025
-
-
-Este README.md agora inclui seções claras sobre como baixar, instalar e testar o `turnover.py`, além de manter as informações relevantes sobre o projeto e suas funcionalidades. Espero que ajude o usuário!
