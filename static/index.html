@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <title>Teste de Turnover</title>    
+    <script src="/static/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Teste de Previsão de Turnover</h2>
+        <form onsubmit="enviarDados(event)">
+            <label for="idade">Idade:</label>
+            <input type="number" id="idade" required>
+            <label for="salario">Salário:</label>
+            <input type="number" id="salario" required>
+            <label for="tempo_empresa">Tempo na Empresa:</label>
+            <input type="number" id="tempo_empresa" required>
+            <label for="avaliacao">Avaliação:</label>
+            <input type="number" step="0.1" id="avaliacao" required>
+            <button type="submit">Enviar</button>
+        </form>
+        <h3 id="resultado"></h3>
+        <div class="dashboard-buttons">
+            <button onclick="abrirDashboard()">Abrir Dashboard (Dash)</button>
+            <button onclick="abrirStreamlit()">Abrir Dashboard (Streamlit)</button>
+        </div>
+    </div>
+    <div class="footer-text">Developer<br>https://www.linkedin.com/in/fabiano-rocha-de-almeida-dev/</div>
+</body>
+</html>

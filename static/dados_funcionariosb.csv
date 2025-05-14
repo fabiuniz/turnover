@@ -1,0 +1,5 @@
+id;nome;idade;salario;tempo_empresa;avaliacao;cargo;departamento;turnover
+101;João Silva;35;8500;5;4.2;Analista;TI;1
+102;Maria Souza;29;6500;3;3.8;Desenvolvedor;TI;0
+103;Carlos Lima;41;11000;8;4.5;Gerente;RH;0
+104;Ana Pereira;26;4200;2;3.5;Assistente;Financeiro;0
