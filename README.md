@@ -6,163 +6,171 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![GitHub Profile](https://img.shields.io/badge/GitHub-fabiuniz-lightgrey.svg?style=flat-square&logo=github)](https://github.com/fabiuniz)
 
-
 ![Logo](static/turnover.png)
 
 ## ✨ Destaques da Minha Contribuição
 
-Este projeto não é apenas uma aplicação funcional de previsão de turnover, mas também uma demonstração tangível das minhas habilidades e paixão por construir soluções completas e impactantes. Minha contribuição abrange todo o ciclo de vida da aplicação:
+Este projeto é uma demonstração das minhas habilidades em desenvolver soluções completas, combinando backend e machine learning. Minhas contribuições incluem:
 
-* **Desenvolvimento de API RESTful com FastAPI:** Criei uma API robusta e de alta performance utilizando o poder do FastAPI, garantindo eficiência e facilidade de uso para interações com o modelo de machine learning. A API permite o envio de dados de funcionários e retorna previsões de turnover em tempo real.
-* **Integração de Machine Learning com TensorFlow:** Implementei a conexão entre a API e um modelo de rede neural treinado com TensorFlow. Isso demonstra minha capacidade de aplicar conhecimentos de machine learning em um contexto prático, desde a concepção do modelo até sua integração em uma aplicação web.
-* **Servindo Conteúdo Estático para Interface de Usuário:** Configurei o FastAPI para servir arquivos estáticos (HTML e CSS), permitindo a criação de uma interface de usuário intuitiva e acessível diretamente no navegador para testar a funcionalidade da API.
-* **Lógica de Previsão e Tratamento de Dados:** Desenvolvi a lógica para receber dados de funcionários através de requisições POST na rota `/predict/`, realizar o pré-processamento necessário e alimentar o modelo de machine learning, retornando uma resposta JSON clara com a probabilidade de turnover.
-* **Habilitação de CORS para Flexibilidade:** Integrei o middleware de CORS para permitir requisições de diferentes origens, facilitando a integração com futuras aplicações front-end mais complexas.
-* **Código Organizado e Documentado:** Estruturei o código de maneira clara e adicionei comentários explicativos, demonstrando minha preocupação com a legibilidade e a manutenibilidade do projeto.
-* **Aprendizado e Aprimoramento Contínuos:** Durante o desenvolvimento deste projeto, aprofundei meus conhecimentos em FastAPI, TensorFlow e nas melhores práticas para implantação de modelos de machine learning em aplicações web. Estou sempre buscando aprender e aplicar novas técnicas para criar soluções cada vez mais eficientes e inovadoras.
+- **Desenvolvimento de API RESTful com FastAPI**: Criei uma API eficiente para prever turnover em tempo real, com endpoints claros e bem documentados.
+- **Integração de Machine Learning com TensorFlow**: Conectei um modelo de rede neural treinado à API, desde a concepção até a integração prática.
+- **Interface Web Simples**: Configurei o FastAPI para servir arquivos estáticos (`index.html`, `style.css`, `script.js`), oferecendo uma interface acessível no navegador.
+- **Lógica de Previsão**: Implementei pré-processamento de dados e integração com o modelo, retornando respostas JSON com a probabilidade de turnover.
+- **Habilitação de CORS**: Adicionei middleware para permitir requisições de diferentes origens, facilitando integrações futuras.
+- **Código Organizado**: Estruturei o projeto com comentários claros, priorizando legibilidade e manutenibilidade.
+- **Aprendizado Contínuo**: Aprofundei conhecimentos em FastAPI, TensorFlow e implantação de modelos, buscando sempre melhorar.
 
-Acredito que este projeto exemplifica minha capacidade de combinar habilidades de desenvolvimento de backend com conhecimentos de machine learning para criar soluções práticas e orientadas a resultados. Estou ansioso para aplicar minhas habilidades em desafios ainda maiores!
+Este projeto reflete minha capacidade de criar soluções práticas e escaláveis. Estou pronto para novos desafios!
 
 ## 🚀 Sobre o Projeto
 
-Este projeto implementa uma aplicação web que utiliza um modelo de machine learning para prever a probabilidade de um funcionário deixar a empresa (turnover). A aplicação é construída utilizando:
+Esta aplicação web utiliza machine learning para prever a probabilidade de turnover de funcionários. Tecnologias utilizadas:
 
-* **FastAPI:** Um framework web moderno e de alto desempenho para construir APIs com Python.
-* **TensorFlow:** Uma biblioteca de código aberto para machine learning desenvolvida pelo Google.
-* **Pandas:** Uma biblioteca para manipulação e análise de dados em Python.
-* **NumPy:** Uma biblioteca para computação numérica em Python.
-* **Scikit-learn:** Uma biblioteca para ferramentas de machine learning em Python.
-* **Uvicorn:** Um servidor ASGI (Asynchronous Server Gateway Interface) rápido como um raio, para executar aplicações FastAPI.
+- **FastAPI**: Framework web para APIs rápidas e modernas.
+- **TensorFlow**: Biblioteca de machine learning para treinar e integrar o modelo.
+- **Pandas**: Manipulação e análise de dados.
+- **NumPy**: Computação numérica.
+- **Scikit-learn**: Ferramentas de machine learning.
+- **Uvicorn**: Servidor ASGI para executar a aplicação.
+- **Matplotlib/Seaborn**: Visualização de dados durante o treinamento.
 
-O código carrega dados fictícios de funcionários, treina um modelo de rede neural simples para prever o turnover e expõe uma API para receber dados de novos funcionários e retornar a probabilidade de turnover prevista. Uma interface web simples em HTML é fornecida para interagir com a API.
+A aplicação carrega dados fictícios, treina uma rede neural e expõe uma API para previsões. Uma interface web simples permite testar a API diretamente no navegador.
 
 ## 📂 Estrutura do Projeto
-```Bash
+
+```
 turnover/
 ├── README.md
-├── turnover.py
-├── dashboard.py
-├── dashboard_streamlit.py
-├── requirements.txt
-├── setup.sh
-├── backup.sh
-├── listallpkg.sh
-│   static/
-│   ├── dados_funcionarios.csv
-│   ├── dados_funcionariosb.csv
-│   ├── favicon.ico
-│   ├── index.html
-│   ├── script.js
-│   ├── style.css
+├── turnover.py              # Script principal com API e lógica de ML
+├── dashboard.py             # Script para dashboard (opcional)
+├── dashboard_streamlit.py   # Dashboard com Streamlit (opcional)
+├── requirements.txt         # Dependências do projeto
+├── setup.sh                 # Script para configuração inicial
+├── backup.sh                # Script para backup de dados
+├── listallpkg.sh            # Script para listar pacotes instalados
+├── static/
+│   ├── dados_funcionarios.csv   # Dados fictícios de funcionários
+│   ├── dados_funcionariosb.csv  # Backup dos dados
+│   ├── favicon.ico              # Ícone da interface web
+│   ├── index.html               # Página web para interação
+│   ├── script.js                # Lógica JavaScript da interface
+│   ├── style.css                # Estilos da interface
 ```
 
 ## 🛠️ Pré-requisitos
 
-Antes de começar, certifique-se de ter as seguintes ferramentas instaladas:
+- **Python 3.9+**: [Download](https://www.python.org/downloads/)
+- **pip**: Gerenciador de pacotes (incluso com Python)
+- **venv**: Módulo para ambientes virtuais (incluso com Python)
+- **Git**: [Download](https://git-scm.com/)
+- **Docker** (opcional): [Download](https://www.docker.com/)
 
-* **Python 3.9+:** Baixe em [python.org](https://www.python.org/downloads/).
-* **pip:** Gerenciador de pacotes Python (geralmente incluso com Python).
-* **venv:** Módulo para ambientes virtuais (incluso com Python).
-* **Git:** Para clonar o repositório. Instale em [git-scm.com](https://git-scm.com/).
-* **Docker (Opcional):** Para executar a aplicação em um contêiner. Instale em [docker.com](https://www.docker.com/).
+## 📦 Dependências
+
+As dependências estão listadas em `requirements.txt`:
+
+```
+fastapi>=0.100.0
+uvicorn>=0.23.0
+pandas>=2.0.0
+tensorflow>=2.12.0
+numpy>=1.24.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+scikit-learn>=1.2.0
+```
+
+Instale com:
+
+```bash
+pip install -r requirements.txt
+```
 
 ## ⚙️ Instalação
 
-Siga os passos abaixo para configurar e executar a aplicação localmente.
+1. **Clonar o Repositório**
 
-**1. Clonar o Repositório**
-
-Clone o projeto do GitHub e navegue até o diretório:
-
-```Bash
+```bash
 git clone https://github.com/fabiuniz/turnover.git
 cd turnover
 ```
 
-**2. Criar e Ativar um Ambiente Virtual**
+2. **Criar e Ativar Ambiente Virtual**
 
-Crie um ambiente virtual para isolar as dependências do projeto.
+Linux/macOS:
 
-No Linux/macOS:
-
-```Bash
+```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
-No Windows:
 
-```Bash
+Windows:
+
+```bash
 python -m venv venv
 venv\Scripts\activate
 ```
-**3. Instalar Dependências**
-Instale todas as bibliotecas listadas em requirements.txt:
 
-```Bash
+3. **Instalar Dependências**
+
+```bash
 pip install -r requirements.txt
 ```
-Se preferir instalar manualmente:
 
-```Bash
-pip install fastapi uvicorn pandas tensorflow numpy matplotlib seaborn scikit-learn
-```
-**4. Configurar Dados Fictícios (Opcional)**
+4. **Configurar Dados Fictícios** (opcional)
 
-O arquivo static/dados_funcionarios.csv contém dados fictícios de funcionários. Se ele não existir, o script turnover.py gera dados automaticamente com as colunas idade, salario, tempo_empresa, avaliacao e turnover. Para personalizar os dados, edite este arquivo CSV.
+O arquivo `static/dados_funcionarios.csv` contém dados fictícios com as colunas `idade`, `salario`, `tempo_empresa`, `avaliacao` e `turnover`. Edite-o para personalizar, se necessário.
 
-**5. Treinar o Modelo**
+5. **Treinar o Modelo**
 
-O script turnover.py treina automaticamente uma rede neural e salva o modelo como modelo_turnover.h5. Para treinar o modelo manualmente (caso queira re-treinar ou se o arquivo não existir), execute:
+Execute para treinar a rede neural e salvar como `modelo_turnover.h5`:
 
-```Bash
+```bash
 python turnover.py
 ```
-Este comando também exibirá gráficos da curva de aprendizado e do histograma salarial.
 
-**6. Executar a Aplicação FastAPI**
+Isso também gera gráficos de curva de aprendizado e histograma salarial.
 
-🛠️ Configuração Opcional do Arquivo hosts
+6. **Executar a Aplicação FastAPI**
 
-Para acessar funcionalidades via http://vmlinuxd:8000, adicione esta linha ao seu arquivo hosts:
-```Bash
-Windows: C:\Windows\System32\drivers\etc\hosts (abra como administrador)
-Linux/macOS: /etc/hosts (use sudo para editar)
-```
-Adicione a linha:
-```Bash
-127.0.0.1 vmlinuxd
-```
-Isso associa o nome vmlinuxd ao endereço 127.0.0.1 no seu computador, permitindo acesso local facilitado. Salve o arquivo após a modificação. Essa etapa é opcional e útil para acessar os dashboards locais.
+Inicie o servidor:
 
-Inicie o servidor FastAPI com Uvicorn:
-
-```Bash
+```bash
 uvicorn turnover:app --host 0.0.0.0 --port 8000 --reload
 ```
-A flag --reload ativa a recarga automática do servidor durante o desenvolvimento, o que é útil para ver as alterações no código em tempo real.
 
-Acesse http://vmlinuxd:8000 no seu navegador para visualizar a interface web.
+Acesse a interface web em `http://vmlinuxd:8000` (ou `http://vmlinuxd:8000` se configurado).
+
+**Configuração Opcional do Arquivo `hosts`**
+
+Para usar `http://vmlinuxd:8000`, adicione ao arquivo `hosts`:
+
+- Windows: `C:\Windows\System32\drivers\etc\hosts` (como administrador)
+- Linux/macOS: `/etc/hosts` (com `sudo`)
+
+```bash
+127.0.0.1 vmlinuxd
+```
 
 ## 🧪 Testando a Aplicação
 
-Você pode testar a aplicação de três maneiras: via interface web, cURL ou Python.
+### 1. Via Interface Web
 
-**1. Teste via Interface Web**
+- Acesse `http://vmlinuxd:8000`.
+- Preencha os campos (idade, salário, tempo de empresa, avaliação).
+- Clique no botão de previsão para ver a probabilidade de turnover.
 
-Abra http://vmlinuxd:8000 no navegador.
-Preencha os campos do formulário (idade, salário, tempo de empresa, avaliação).
-Clique no botão de previsão para ver a probabilidade de turnover.
+Os arquivos `index.html`, `script.js` e `style.css` em `static/` compõem a interface.
 
-**2. Teste via cURL**
+### 2. Via cURL
 
-Envie uma requisição POST para a rota /predict/:
-
-```Bash
+```bash
 curl -X POST "http://vmlinuxd:8000/predict/" -H "Content-Type: application/json" -d '{"idade": 35, "salario": 8500, "tempo_empresa": 5, "avaliacao": 4.2}'
 ```
-Resposta esperada:
-```Bash
-JSON
+
+**Resposta**:
+
+```json
 {
   "idade": 35,
   "salario": 8500.0,
@@ -171,12 +179,10 @@ JSON
   "chance_turnover": "XX.XX%"
 }
 ```
-**3. Teste via Python**
 
-Use a biblioteca requests para enviar uma requisição à API:
+### 3. Via Python
 
-Python
-```Bash
+```python
 import requests
 data = {
     "idade": 35,
@@ -187,73 +193,64 @@ data = {
 response = requests.post("http://vmlinuxd:8000/predict/", json=data)
 print(response.json())
 ```
+
 ## 🐳 Executando com Docker (Opcional)
-Para rodar a aplicação em um contêiner Docker, siga os passos abaixo.
 
-**1. Criar um Dockerfile**
+1. **Criar `Dockerfile`**
 
-Crie um arquivo chamado Dockerfile no diretório do projeto com o seguinte conteúdo:
-```Bash
-Dockerfile
-
+```dockerfile
 FROM python:3.9-slim
-
 WORKDIR /app
-
 COPY . .
-
 RUN pip install -r requirements.txt
-
 EXPOSE 8000
-
 CMD ["uvicorn", "turnover:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
-**2. Construir e Executar o Contêiner**
 
-```Bash
+2. **Construir e Executar**
+
+```bash
 docker build -t turnover-app .
 docker run -p 8000:8000 turnover-app
 ```
-**3. Testar**
 
-Acesse http://vmlinuxd:8000 no navegador ou use cURL/Python para testar a API.
+3. **Testar**
 
+Acesse `http://vmlinuxd:8000` ou use cURL/Python.
 
 ## 📊 Visualizações
 
-Ao executar python turnover.py, você verá:
+Ao executar `python turnover.py` (não via API), são gerados:
 
-Curva de Aprendizado: Um gráfico comparando a acurácia de treino e validação ao longo das épocas.
-Histograma Salarial: Um histograma da distribuição de salários para análise dos dados.
-Estes gráficos são exibidos automaticamente durante o treinamento do modelo.
+- **Curva de Aprendizado**: Compara acurácia de treino e validação.
+- **Histograma Salarial**: Mostra a distribuição de salários.
 
+Os gráficos são exibidos e salvos automaticamente.
 
 ## 🔧 Solução de Problemas
 
-Erro de dependências: Certifique-se de que todas as bibliotecas estão instaladas (pip install -r requirements.txt). Se houver falhas, tente atualizar o pip: pip install --upgrade pip.
-Modelo não carrega: Verifique se o arquivo modelo_turnover.h5 existe no diretório. Se não, execute python turnover.py para treinar o modelo.
-Erro de CORS: O middleware CORS está configurado para aceitar todas as origens (allow_origins=["*"]). Verifique se a requisição está correta.
-Dados inconsistentes: Os dados de entrada devem ter as colunas idade (int), salario (float), tempo_empresa (int) e avaliacao (float), no mesmo formato usado no treinamento.
-Erro no script: Se a função defaultvalue() falhar, verifique se as colunas de X correspondem aos dados gerados. Ajuste o código para garantir compatibilidade.
+- **Erro de Dependências**: Atualize o pip (`pip install --upgrade pip`) e reinstale (`pip install -r requirements.txt`).
+- **Modelo Não Carrega**: Verifique se `modelo_turnover.h5` existe. Execute `python turnover.py` para treinar.
+- **Erro de CORS**: O middleware permite todas as origens (`allow_origins=["*"]`). Verifique a requisição.
+- **Dados Inconsistentes**: Os dados de entrada devem ter `idade` (int), `salario` (float), `tempo_empresa` (int), `avaliacao` (float).
 
 ## 🚀 Melhorias Futuras
 
-Adicionar mais features ao modelo (ex.: satisfação no trabalho, horas extras).
-Implementar validação de entrada mais rigorosa na API.
-Desenvolver uma interface frontend avançada com React ou Vue.js.
-Otimizar hiperparâmetros do modelo (ex.: número de camadas, neurônios, taxa de aprendizado).
-Adicionar testes unitários com pytest para validar a API e o modelo.
-Integrar um banco de dados para armazenar previsões e dados de funcionários.
+- Adicionar features ao modelo (ex.: satisfação, horas extras).
+- Implementar validação rigorosa na API.
+- Criar frontend com React ou Vue.js.
+- Otimizar hiperparâmetros do modelo.
+- Adicionar testes unitários com `pytest`.
+- Integrar banco de dados para armazenar previsões.
 
 ## 📜 Licença
 
-Este projeto está licenciado sob a MIT License.
-
+Licenciado sob a [MIT License](https://opensource.org/licenses/MIT). **Nota**: Adicione um arquivo `LICENSE` com o texto da licença MIT para consistência.
 
 ## 📬 Contato
 
-Para sugestões, dúvidas ou relatórios de bugs, abra uma issue ou entre em contato via GitHub.
+Para sugestões ou dúvidas, abra uma issue ou contate-me via [GitHub](https://github.com/fabiuniz).
 
-Resumo: Este projeto combina FastAPI e TensorFlow para prever o turnover de funcionários, oferecendo uma API robusta e uma interface web simples. O código é modular, bem documentado e pronto para uso ou expansão. Teste a aplicação e explore como ela pode ser integrada a outros sistemas! 💡
+**Resumo**: Este projeto combina FastAPI e TensorFlow para prever turnover, com API robusta e interface web. É modular, documentado e pronto para expansão. Teste e integre! 💡
 
-Última atualização: 14 de maio de 2025
+**Última atualização**: 23 de maio de 2025
