@@ -31,7 +31,7 @@ docker-compose up --build
 
 # which pip
 # http://vmlinuxd:8000/predict/
-# curl -X POST "http://localhost:8000/predict/" -H "Content-Type: application/json" -d '{"idade": 35, "salario": 8500, "tempo_empresa": 5, "avaliacao": 4.2}'
+# curl -X POST "http://vmlinuxd:8000/predict/" -H "Content-Type: application/json" -d '{"idade": 35, "salario": 8500, "tempo_empresa": 5, "avaliacao": 4.2}'
 # pip download tensorflow -d /home/userlnx/docker/script_docker/relay/
 # Backup: pip download -r <(pip freeze) -d /home/userlnx/docker/script_docker/relay
 # Backup: pip download dash -d /home/userlnx/docker/script_docker/relay/

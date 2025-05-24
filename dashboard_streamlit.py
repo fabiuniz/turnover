@@ -1,39 +1,50 @@
 import streamlit as st
 import pandas as pd
-import numpy as np # Mantido caso precise para algo futuro, mas não para carregar dados
+import numpy as np
 import requests
 import plotly.express as px
-import seaborn as sns # Mantido caso precise para algo futuro, mas plotly é preferido no Streamlit
-import matplotlib.pyplot as plt # Mantido caso precise para algo futuro, mas plotly é preferido no Streamlit
+import seaborn as sns
+import matplotlib.pyplot as plt
 
-# --- Carregar Dados Reais ---
-# Certifique-se de que o arquivo 'dados_funcionarios.csv' está na pasta 'static'
+# --- Carregar Dados Reais ou Gerar Aleatórios como Fallback ---
 try:
     df = pd.read_csv("static/dados_funcionarios.csv", sep=";", encoding="utf-8")
-    st.success("Dados de funcionários carregados com sucesso!")
-    
-    # Limpeza de dados (se necessário, replique do seu turnover.py)
-    # df.dropna(inplace=True)
-    # df["idade"] = df["idade"].astype(int)
+    st.success("Dados de funcionários carregados com sucesso de 'static/dados_funcionarios.csv'!")
 
 except FileNotFoundError:
-    st.error("Erro: O arquivo 'static/dados_funcionarios.csv' não foi encontrado. Verifique o caminho.")
-    st.stop() # Para o script se o arquivo não for encontrado
+    st.warning("Arquivo 'static/dados_funcionarios.csv' não encontrado. Carregando dados aleatórios para demonstração.")
+    # Gerar dados aleatórios como fallback
+    data_fallback = {
+        "idade": np.random.randint(22, 60, 500),
+        "salario": np.random.randint(3000, 20000, 500), # Ajuste o max_value se quiser salários maiores no fallback
+        "tempo_empresa": np.random.randint(1, 15, 500),
+        "avaliacao": np.random.uniform(1, 5, 500),
+        "turnover": np.random.randint(0, 2, 500)
+    }
+    df = pd.DataFrame(data_fallback)
 except Exception as e:
-    st.error(f"Erro ao carregar dados: {e}. Verifique o formato do CSV.")
-    st.stop()
+    st.error(f"Erro ao carregar dados de 'static/dados_funcionarios.csv': {e}. Carregando dados aleatórios.")
+    # Gerar dados aleatórios como fallback em caso de outros erros de carregamento
+    data_fallback = {
+        "idade": np.random.randint(22, 60, 500),
+        "salario": np.random.randint(3000, 20000, 500),
+        "tempo_empresa": np.random.randint(1, 15, 500),
+        "avaliacao": np.random.uniform(1, 5, 500),
+        "turnover": np.random.randint(0, 2, 500)
+    }
+    df = pd.DataFrame(data_fallback)
 
 # Título
 st.title("Dashboard de Análise de Turnover")
 
-# Visualizações - Agora usando o 'df' carregado do CSV
+# Visualizações - Agora usando o 'df' carregado (real ou aleatório)
 st.subheader("Distribuição Salarial")
-st.write("A distribuição salarial abaixo é baseada nos dados reais carregados de 'dados_funcionarios.csv'.")
+st.write("A distribuição salarial abaixo é baseada nos dados carregados.")
 fig = px.histogram(df, x="salario", nbins=30, title="Distribuição Salarial")
 st.plotly_chart(fig)
 
 st.subheader("Salário vs Avaliação")
-st.write("Este gráfico mostra a relação entre salário e avaliação de desempenho, coloridos pela ocorrência de turnover nos dados reais.")
+st.write("Este gráfico mostra a relação entre salário e avaliação de desempenho, coloridos pela ocorrência de turnover.")
 fig2 = px.scatter(df, x="avaliacao", y="salario", color="turnover", title="Salário vs Avaliação")
 st.plotly_chart(fig2)
 
@@ -41,24 +52,39 @@ st.plotly_chart(fig2)
 st.subheader("Previsão de Turnover")
 st.write("Insira os dados de um funcionário para prever a chance de turnover. Você pode usar esta seção para testar diferentes cenários.")
 
-idade = st.number_input("Idade", min_value=int(df['idade'].min()), max_value=int(df['idade'].max()), value=int(df['idade'].mean()))
-salario = st.number_input("Salário", min_value=int(df['salario'].min()), max_value=int(df['salario'].max()), value=int(df['salario'].mean()))
-tempo = st.number_input("Tempo na Empresa (anos)", min_value=int(df['tempo_empresa'].min()), max_value=int(df['tempo_empresa'].max()), value=int(df['tempo_empresa'].mean()))
-avaliacao = st.number_input("Avaliação (1 a 5)", min_value=float(df['avaliacao'].min()), max_value=float(df['avaliacao'].max()), value=float(df['avaliacao'].mean()), step=0.1)
+# Define valores padrão e limites com base no DataFrame carregado (real ou aleatório)
+min_idade = int(df['idade'].min()) if not df.empty else 18
+max_idade = int(df['idade'].max()) if not df.empty else 100
+mean_idade = int(df['idade'].mean()) if not df.empty else 35
+
+min_salario = int(df['salario'].min()) if not df.empty else 1000
+max_salario = int(df['salario'].max()) if not df.empty else 50000
+mean_salario = int(df['salario'].mean()) if not df.empty else 8500
+
+min_tempo = int(df['tempo_empresa'].min()) if not df.empty else 0
+max_tempo = int(df['tempo_empresa'].max()) if not df.empty else 50
+mean_tempo = int(df['tempo_empresa'].mean()) if not df.empty else 5
+
+min_avaliacao = float(df['avaliacao'].min()) if not df.empty else 1.0
+max_avaliacao = float(df['avaliacao'].max()) if not df.empty else 5.0
+mean_avaliacao = float(df['avaliacao'].mean()) if not df.empty else 4.2
+
+
+idade = st.number_input("Idade", min_value=min_idade, max_value=max_idade, value=mean_idade)
+salario = st.number_input("Salário", min_value=min_salario, max_value=max_salario, value=mean_salario)
+tempo = st.number_input("Tempo na Empresa (anos)", min_value=min_tempo, max_value=max_tempo, value=mean_tempo)
+avaliacao = st.number_input("Avaliação (1 a 5)", min_value=min_avaliacao, max_value=max_avaliacao, value=mean_avaliacao, step=0.1)
 
 
 if st.button("Prever"):
-    # Payload para a API - usa os valores inseridos pelo usuário
     payload = {
         "idade": idade,
         "salario": salario,
-        "tempo_empresa": tempo, # O nome da chave deve ser 'tempo_empresa' para a API
+        "tempo_empresa": tempo,
         "avaliacao": avaliacao
     }
     
     try:
-        # URL da sua API FastAPI
-        # Certifique-se de que esta URL está correta e acessível
         response = requests.post("http://vmlinuxd:8000/predict/", json=payload)
         
         if response.status_code == 200:
