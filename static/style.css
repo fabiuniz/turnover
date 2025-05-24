@@ -1,97 +1,275 @@
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a3c5e 0%, #2a6d8f 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            color: #333;
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a3c5e 0%, #2a6d8f 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+    padding: 20px;
+    box-sizing: border-box;
+}
 
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-        }
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-        h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #1a3c5e;
-            margin-bottom: 30px;
-        }
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a3c5e;
+    margin-bottom: 15px;
+}
 
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #2a6d8f;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
 
-        label {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #1a3c5e;
-            text-align: left;
-        }
+.description {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
 
-        input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            font-size: 1rem;
-            color: #333;
-            background-color: #f9fafb;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
+/* Info Button */
+.info-button {
+    background-color: #6c757d; /* Gray for info button */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+    width: auto; /* Allow button to size to content */
+    display: inline-block; /* Keep it inline-block for spacing */
+}
 
-        input:focus {
-            outline: none;
-            border-color: #2a6d8f;
-            box-shadow: 0 0 8px rgba(42, 109, 143, 0.2);
-        }
+.info-button:hover {
+    background-color: #5a6268;
+}
 
-        button {
-            width: 100%;
-            padding: 6px;
-            background-color: #facc15;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #1a3c5e;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.1s ease;
-        }
+/* Explanation Box */
+.explanation-box {
+    background-color: #f8f9fa;
+    border: 1px solid #e2e6ea;
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: 20px;
+    text-align: left;
+    max-height: 0; /* Initially hidden */
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out, border 0.5s ease-out;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
 
-        button:hover {
-            background-color: #e3b505;
-            transform: translateY(-2px);
-        }
+.explanation-box.show {
+    max-height: 2613px; /* Increased max-height for dashboard explanation */
+    padding: 25px;
+    opacity: 1;
+    visibility: visible;
+    transition: max-height 0.7s ease-in, padding 0.7s ease-in, opacity 0.7s ease-in, visibility 0s;
+}
 
-        button:active {
-            transform: translateY(0);
-        }
+.explanation-box h3, .explanation-box h4 {
+    color: #1a3c5e;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
 
-        h3#resultado {
-            margin-top: 30px;
-            font-size: 1.3rem;
-            font-weight: 500;
-            color: #1a3c5e;
-            min-height: 1.5em;
-        }
+.explanation-box p, .explanation-box ul, .explanation-box ol {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 10px;
+}
 
-        .footer-text {
-            position: fixed;
-            bottom: 20px;
-            color: #ffffff;
-            opacity: 0.7;
-            font-size: 0.9rem;
-            text-align: center;
-            width: 100%;
-        }
+.explanation-box ul, .explanation-box ol {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.explanation-box strong {
+    color: #2a6d8f;
+}
+
+.close-explanation-button {
+    background-color: #dc3545; /* Red for close button */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-top: 20px;
+    float: right; /* Position to the right */
+    transition: background-color 0.3s ease;
+}
+
+.close-explanation-button:hover {
+    background-color: #c82333;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    text-align: left;
+}
+
+label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #1a3c5e;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input {
+    width: calc(100% - 24px);
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #f9fafb;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #2a6d8f;
+    box-shadow: 0 0 8px rgba(42, 109, 143, 0.2);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#predictButton {
+    background-color: #007bff;
+    color: white;
+}
+
+#predictButton:hover {
+    background-color: #0056b3;
+}
+
+
+h3#resultado {
+    margin-top: 30px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a3c5e;
+    min-height: 1.5em;
+}
+
+.prediction-result {
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.dashboard-section {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.dashboard-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px; /* Space between buttons and new info button */
+}
+
+.dashboard-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.dashboard-btn:hover {
+    background-color: #218838;
+}
+
+.small-text {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 15px;
+}
+
+.footer-text {
+    color: #ffffff;
+    opacity: 0.7;
+    font-size: 0.9rem;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.footer-text a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-text a:hover {
+    text-decoration: underline;
+}
+
+/* Spinner for loading state */
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #facc15;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

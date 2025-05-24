@@ -8,6 +8,27 @@ pip install fastapi uvicorn
 python3 turnover.py
 uvicorn turnover:app --host 0.0.0.0 --port 8000 --reload
 
+docker-compose up --build
+
+# cp *.deb /var/cache/apt/archives; rm *.deb
+# . setup_script_launcher.sh
+# docker load -i python_3.9-slim.tar
+# mkdir -p /home/userlnx/docker/script_docker/turnover
+# chmod -R 777 /home/userlnx/docker/script_docker/turnover
+# up files turnover
+# up files pacotespip
+# up file python_3.9-slim.tar
+# docker load -i python_3.9-slim.tar; rm python_3.9-slim.tar
+# docker-compose up --build
+# docker system prune -a --volumes; clear ; docker images;
+# docker exec -it turnover_app_1 /bin/bash
+# root@6d278194616b:/app/static# mv dados_funcionarios.csv dados_funcionarios_.csv
+# docker cp dashboard.py turnover_app_1:/app/dashboard.py 
+# docker logs -f turnover_app_1
+# docker-compose down
+# docker-compose up -d
+
+
 # which pip
 # http://vmlinuxd:8000/predict/
 # curl -X POST "http://localhost:8000/predict/" -H "Content-Type: application/json" -d '{"idade": 35, "salario": 8500, "tempo_empresa": 5, "avaliacao": 4.2}'

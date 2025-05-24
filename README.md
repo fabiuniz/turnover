@@ -227,6 +227,8 @@ Ao executar `python turnover.py` (não via API), são gerados:
 
 Os gráficos são exibidos e salvos automaticamente.
 
+![Logo](static/banner.png)
+
 ## 🔧 Solução de Problemas
 
 - **Erro de Dependências**: Atualize o pip (`pip install --upgrade pip`) e reinstale (`pip install -r requirements.txt`).

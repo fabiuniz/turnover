@@ -1,0 +1,15 @@
+# /home/userlnx/docker/script_docker/turnover/docker-compose.yml
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "8000:8000"      
+      - "8050:8050"
+      - "8501:8501"      
+    # REMOVA COMPLETAMENTE A SEÇÃO 'volumes:' SE VOCÊ NÃO PRECISA MONTAR O CÓDIGO-FONTE PARA DEV
+    # Se você quiser montar o código-fonte para desenvolvimento, a sintaxe correta é:
+    # volumes:
+    #   - .:/app # Isso montaria o diretório atual (turnover) para /app no contêiner

@@ -20,6 +20,7 @@ import matplotlib.pyplot as plt
 from fastapi.middleware.cors import CORSMiddleware
 import subprocess
 import asyncio
+import joblib
 
 # adicionar registro aleatorio de forma dinamica cosiderando quantidade de colunas
 def defaultvalue ():
@@ -79,6 +80,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # Normalização dos dados
 scaler = StandardScaler()
 scaler.fit(X_train)
+joblib.dump(scaler, 'scaler_turnover.pkl')
 X_train_df = pd.DataFrame(X_train, columns=X.columns)  # Mantém nomes das colunas
 X_train_scaled = scaler.fit_transform(X_train_df)
 
@@ -161,10 +163,14 @@ model.save("modelo_turnover.h5")
 # Carrega o modelo treinado
 model = tf.keras.models.load_model("modelo_turnover.h5")
 
+# Carrega o scaler treinado
+scaler = joblib.load('scaler_turnover.pkl')
+
 # Criando um objeto de normalização (ajuste conforme necessário)
 scaler = StandardScaler()
 dummy_data = np.array([[35, 8500, 5, 4.2]])  
 scaler.fit(dummy_data) 
+
 
 # Carrega o HTML ao acessar a página inicial
 @app.get("/", response_class=HTMLResponse)
@@ -175,21 +181,18 @@ async def home():
 def predict(funcionario: FuncionarioInput):
     """Recebe dados do funcionário via JSON e retorna a probabilidade de turnover"""
 
+    # Crie um DataFrame a partir da entrada do usuário
+    # Garanta que a ordem das colunas corresponda à ordem usada no treinamento (X_train.columns)
+    entrada_dados = pd.DataFrame([[
+        funcionario.idade,
+        funcionario.salario,
+        funcionario.tempo_empresa,
+        funcionario.avaliacao
+    ]], columns=['idade', 'salario', 'tempo_empresa', 'avaliacao']) # Use os nomes das colunas explicitamente
 
-    arrai = defaultvalue()
-    #arrai[0,4]= funcionario.idade 
-    #arrai[0,5]= funcionario.salario
-    #arrai[0,6]= funcionario.tempo_empresa 
-    #arrai[0,7]= funcionario.avaliacao
-
-    print(arrai)
-
-    # Transforma os dados de entrada para um DataFrame compatível
-    entrada_df = pd.DataFrame(arrai, columns=X_train.columns)  # Mantém estrutura idêntica ao treinamento
-    entrada_df = entrada_df[X_train.columns]  # Mantém apenas as colunas usadas no treinamento
-    
-    # Normaliza os dados para que estejam compatíveis com o modelo
-    entrada_scaled = scaler.transform(entrada_df.values) # Converte para numpy sem colunas nomeadas
+    # Normaliza os dados de entrada usando o scaler que foi ajustado globalmente
+    # (assumindo que 'scaler' é o objeto StandardScaler ajustado com X_train)
+    entrada_scaled = scaler.transform(entrada_dados)
 
     # Fazendo a previsão
     predicao = model.predict(entrada_scaled)
