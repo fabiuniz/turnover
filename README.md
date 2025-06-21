@@ -1,3 +1,9 @@
+<!-- 
+  Tags: DadosIA, Dev
+  Label: 📈 Análise Turnover (Python, ML)
+  Description: Previsão de Turnover de Funcionários com FastAPI e TensorFlow
+  path_hook: hookfigma.hook2, hookfigma.hook7
+-->
 # Previsão de Turnover de Funcionários com FastAPI e TensorFlow
 
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg?style=flat-square)](https://www.python.org/downloads/)
